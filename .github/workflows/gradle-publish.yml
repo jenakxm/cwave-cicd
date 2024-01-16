@@ -31,13 +31,15 @@ jobs:
         mysql version: '8.0'
         mysql database: 'istory'
         mysql root password: ${{ secrets.MYSQL_ROOT_PASSWORD }}
-        mysql user: ${{ secrets.MYSQL_USER }}
-        mysql password: ${{ secrets.MYSQL_PASSWORD }}
+#        mysql user: ${{ secrets.MYSQL_USER }}
+#        mysql password: ${{ secrets.MYSQL_PASSWORD }}
       # 빌드하기
-    - name: 4. Build with Gradle
+    - name: 5. Build with Gradle
       uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25 # v2.6.0
       with:
         arguments: build
+        cache-disabled: true
+        gradle-home-cache-cleanup: true
 #    # The USERNAME and TOKEN need to correspond to the credentials environment variables used in
 #    # the publishing section of your build.gradle
 #    - name: Publish to GitHub Packages
