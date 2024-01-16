@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.dangtong.springbootdeveloper.controller.BlogApiControllerTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-01-15T06:49:19" hostname="KDP24" time="0.836">
+  <properties/>
+  <testcase name="deleteArticle: 블로그 글 삭제에 성공 한다." classname="me.dangtong.springbootdeveloper.controller.BlogApiControllerTest" time="0.527"/>
+  <testcase name="findArticle: 블로그 글 조회에 성공 한다." classname="me.dangtong.springbootdeveloper.controller.BlogApiControllerTest" time="0.087"/>
+  <testcase name="findAllArticles: 블로그 글 목록 조회에 성공 한다." classname="me.dangtong.springbootdeveloper.controller.BlogApiControllerTest" time="0.047"/>
+  <testcase name="addArticle: 블로그 글 추가에 성공 한다." classname="me.dangtong.springbootdeveloper.controller.BlogApiControllerTest" time="0.092"/>
+  <testcase name="updateArticle: 블로그 글 업데이트에 성공 한다." classname="me.dangtong.springbootdeveloper.controller.BlogApiControllerTest" time="0.079"/>
+  <system-out><![CDATA[2024-01-15T15:49:17.768+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [me.dangtong.springbootdeveloper.controller.BlogApiControllerTest]: BlogApiControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-01-15T15:49:17.784+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration me.dangtong.springbootdeveloper.SpringbootdeveloperApplication for test class me.dangtong.springbootdeveloper.controller.BlogApiControllerTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.0)
+
+2024-01-15T15:49:17.817+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] m.d.s.controller.BlogApiControllerTest   : Starting BlogApiControllerTest using Java 21.0.1 with PID 23752 (started by kdt in C:\Users\kdt\IdeaProjects\cloudwave\cloudwave-tf\k8s\practice\cwave-cicd-start)
+2024-01-15T15:49:17.817+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] m.d.s.controller.BlogApiControllerTest   : No active profile set, falling back to 1 default profile: "default"
+2024-01-15T15:49:18.186+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-01-15T15:49:18.204+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 3 JPA repository interfaces.
+2024-01-15T15:49:18.332+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-01-15T15:49:18.356+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5c085d4a
+2024-01-15T15:49:18.357+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-01-15T15:49:18.379+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-01-15T15:49:18.379+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-01-15T15:49:18.379+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-01-15T15:49:18.396+09:00  WARN 23752 --- [USER-SERVICE] [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-01-15T15:49:18.456+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: drop table if exists article
+Hibernate: drop table if exists refresh_token
+Hibernate: drop table if exists users
+Hibernate: create table article (created_at datetime(6), id bigint not null auto_increment, updated_at datetime(6), content varchar(255) not null, title varchar(255) not null, primary key (id)) engine=InnoDB
+Hibernate: create table refresh_token (id bigint not null auto_increment, user_id bigint not null, refresh_token varchar(255) not null, primary key (id)) engine=InnoDB
+Hibernate: create table users (id bigint not null auto_increment, email varchar(255) not null, password varchar(255), primary key (id)) engine=InnoDB
+Hibernate: alter table refresh_token add constraint UK_f95ixxe7pa48ryn1awmh2evt7 unique (user_id)
+Hibernate: alter table users add constraint UK_6dotkott2kjsp8vw4d0m25fb7 unique (email)
+2024-01-15T15:49:18.831+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-01-15T15:49:19.096+09:00  WARN 23752 --- [USER-SERVICE] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-01-15T15:49:19.332+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-01-15T15:49:19.397+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@358260b6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@462c68b3, org.springframework.security.web.context.SecurityContextHolderFilter@496de48b, org.springframework.security.web.header.HeaderWriterFilter@7772549d, org.springframework.web.filter.CorsFilter@53b83e49, org.springframework.security.web.authentication.logout.LogoutFilter@35014251, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6364e814, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@102fcc80, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@27551c3a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@536905ed, org.springframework.security.web.access.ExceptionTranslationFilter@1cd6769b, org.springframework.security.web.access.intercept.AuthorizationFilter@4d630ffa]
+2024-01-15T15:49:19.913+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-01-15T15:49:19.913+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-01-15T15:49:19.913+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2024-01-15T15:49:19.929+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] m.d.s.controller.BlogApiControllerTest   : Started BlogApiControllerTest in 2.128 seconds (process running for 13.965)
+2024-01-15T15:49:19.960+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-01-15T15:49:19.960+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-01-15T15:49:19.960+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+Hibernate: select a1_0.id,a1_0.content,a1_0.created_at,a1_0.title,a1_0.updated_at from article a1_0
+Hibernate: insert into article (content,created_at,title,updated_at) values (?,?,?,?)
+Hibernate: select a1_0.id,a1_0.content,a1_0.created_at,a1_0.title,a1_0.updated_at from article a1_0 where a1_0.id=?
+Hibernate: delete from article where id=?
+Hibernate: select a1_0.id,a1_0.content,a1_0.created_at,a1_0.title,a1_0.updated_at from article a1_0
+2024-01-15T15:49:20.492+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-01-15T15:49:20.492+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-01-15T15:49:20.492+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+Hibernate: select a1_0.id,a1_0.content,a1_0.created_at,a1_0.title,a1_0.updated_at from article a1_0
+Hibernate: insert into article (content,created_at,title,updated_at) values (?,?,?,?)
+Hibernate: select a1_0.id,a1_0.content,a1_0.created_at,a1_0.title,a1_0.updated_at from article a1_0 where a1_0.id=?
+2024-01-15T15:49:20.570+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-01-15T15:49:20.570+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-01-15T15:49:20.570+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+Hibernate: select a1_0.id,a1_0.content,a1_0.created_at,a1_0.title,a1_0.updated_at from article a1_0
+Hibernate: delete from article where id=?
+Hibernate: insert into article (content,created_at,title,updated_at) values (?,?,?,?)
+Hibernate: select a1_0.id,a1_0.content,a1_0.created_at,a1_0.title,a1_0.updated_at from article a1_0
+2024-01-15T15:49:20.630+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-01-15T15:49:20.630+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-01-15T15:49:20.631+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+Hibernate: select a1_0.id,a1_0.content,a1_0.created_at,a1_0.title,a1_0.updated_at from article a1_0
+Hibernate: delete from article where id=?
+Hibernate: insert into article (content,created_at,title,updated_at) values (?,?,?,?)
+Hibernate: select a1_0.id,a1_0.content,a1_0.created_at,a1_0.title,a1_0.updated_at from article a1_0
+2024-01-15T15:49:20.723+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-01-15T15:49:20.723+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-01-15T15:49:20.724+09:00  INFO 23752 --- [USER-SERVICE] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+Hibernate: select a1_0.id,a1_0.content,a1_0.created_at,a1_0.title,a1_0.updated_at from article a1_0
+Hibernate: delete from article where id=?
+Hibernate: insert into article (content,created_at,title,updated_at) values (?,?,?,?)
+Hibernate: select a1_0.id,a1_0.content,a1_0.created_at,a1_0.title,a1_0.updated_at from article a1_0 where a1_0.id=?
+Hibernate: update article set content=?,created_at=?,title=?,updated_at=? where id=?
+Hibernate: select a1_0.id,a1_0.content,a1_0.created_at,a1_0.title,a1_0.updated_at from article a1_0 where a1_0.id=?
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
