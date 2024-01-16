@@ -4,6 +4,7 @@ on: # 언제 움직일건지
     branches: ['main']
   pull_request: # 풀리퀘 받았을 때
     branches: ['main']
+permissions: write-all
 jobs:
   build:
     # vm 제공해줌
