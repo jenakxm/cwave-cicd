@@ -20,7 +20,7 @@ jobs:
         # 자바 배포 버전
         distribution: 'temurin'
     - name: 3. Change Execute Mode
-      run: chmod+x ./gradlew
+      run: chmod +x ./gradlew
       # 빌드하기
     - name: 4. Build with Gradle
       uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25 # v2.6.0
